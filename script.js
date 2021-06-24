@@ -82,17 +82,47 @@ setClock('timer', deadline);
 
 // модальное окно
 
+// let morebtns = document.querySelectorAll('.description-btn'),
+//     overwind = document.querySelector('.overlay'),
+//     closebtn = document.querySelector('.popup-close');
+
+//     for (let i = 0; i < morebtns.length; i++) {
+//         morebtns[i].addEventListener('click', function() {
+//             overwind.style.display = 'block';
+//             this.classList.add('more-splash');
+//             document.body.style.overflow = 'hidden';
+//         });
+//     }
+//     closebtn.addEventListener('click', function() {
+//         overwind.style.display = 'none';
+//         for (let i = 0; i < morebtns.length; i++) {
+//                 morebtns[i].classList.remove('more-splash');
+//         }
+//         document.body.style.overflow = '';
+//     });
+// });
+//ЭТОТ ВАРИАНТ РАБОТАЕТ
+
+//ВТОРОЙ ВРИАНТ
+
+
 let morebtns = document.querySelectorAll('.description-btn'),
     overwind = document.querySelector('.overlay'),
     closebtn = document.querySelector('.popup-close');
 
+    function overlayshow() {
+        overwind.style.display = 'block';
+        this.classList.add('more-splash');
+        document.body.style.overflow = 'hidden';
+    }
+
     for (let i = 0; i < morebtns.length; i++) {
         morebtns[i].addEventListener('click', function() {
-            overwind.style.display = 'block';
-            this.classList.add('more-splash');
-            document.body.style.overflow = 'hidden';
+            overlayshow.apply(this);
         });
     }
+
+
     closebtn.addEventListener('click', function() {
         overwind.style.display = 'none';
         for (let i = 0; i < morebtns.length; i++) {
@@ -100,4 +130,8 @@ let morebtns = document.querySelectorAll('.description-btn'),
         }
         document.body.style.overflow = '';
     });
+
+
+
+
 });
